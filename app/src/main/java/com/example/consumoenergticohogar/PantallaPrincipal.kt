@@ -40,7 +40,7 @@ class PantallaPrincipal {
                 onClick = { navController.navigate("") },
                 modifier = modifier
             ) {
-                Text(text = "¿Qué debería hacer para ahorrar más?")
+                Text(text = "¿Qué debería hacer para ahorrar más?" )
             }
         }
     }
