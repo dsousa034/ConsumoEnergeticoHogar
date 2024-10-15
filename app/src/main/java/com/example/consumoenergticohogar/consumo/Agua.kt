@@ -1,15 +1,10 @@
 package com.example.consumoenergticohogar.consumo
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,50 +20,74 @@ import kotlin.random.Random
 
 class Agua {
     var consumoAgua = 75.0
+    private val mensaje = if (consumoAgua > 111.0) {
+        "Este mes ha tenido un consumo de agua de $consumoAgua litros \n" +
+                "Estás consumiendo más de lo recomendado\n" +
+                "¡¡DEBERÍAS REDUCIR EL CONSUMO!!"
+    } else {
+        "Este mes ha tenido un consumo de agua de $consumoAgua litros \n" +
+                "Estás en el rango de valores óptimos\n" +
+                "¡¡SIGUE ASÍ!!"
+    }
 
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun AguaScreen(navController: NavController, modifier: Modifier = Modifier) {
-        Column(
-            modifier = modifier
-                .fillMaxSize()
-                .padding(16.dp)
-        ) {
-            Text(
-                text = "Consumo energético\n" +
-                        "Agua",
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(16.dp)
-            )
-            Box(modifier = Modifier.fillMaxSize()) {
-                if (consumoAgua > 111.0) {
-                    Text(
-                        text = "Este mes ha tenido un consumo de agua de $consumoAgua litros \n" +
-                                "Estás consumiendo más de lo recomendado\n" +
-                                "¡¡DEBERÍAS REDUCIR EL CONSUMO!!",
-                        modifier = modifier.padding(16.dp)
+        val backgroundColor = if (mensaje.contains("¡¡SIGUE ASÍ!!")) Color(0xFFD0F0C0) else Color(0xFFFFC0C0)
+
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text("Consumo Agua") },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        titleContentColor = Color.White
                     )
-                } else {
-                    Text(
-                        text = "Este mes ha tenido un consumo de agua de $consumoAgua litros \n" +
-                                "Estás en el rango de valores óptimos\n" +
-                                "¡¡SIGUE ASÍ!!",
-                        modifier = modifier.padding(16.dp)
-                    )
-                }
-                Button(
-                    onClick = { navController.navigate("mainScreen") },
-                    modifier = Modifier
-                        .align(Alignment.BottomEnd)
+                )
+            },
+            content = { paddingValues ->
+                Box(
+                    modifier = modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
                         .padding(16.dp)
-                        .height(70.dp)
-                        .width(150.dp),
-                    colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.primary)
                 ) {
-                    Text(text = "Inicio", color = Color.White, fontSize = 18.sp)
+                    Column {
+                        Card(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 8.dp),
+                            shape = RoundedCornerShape(8.dp),
+                            elevation = CardDefaults.cardElevation(4.dp)
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .background(backgroundColor)
+                                    .border(8.dp, Color.LightGray, RoundedCornerShape(8.dp))
+                                    .padding(16.dp)
+                            ) {
+                                Text(
+                                    text = mensaje,
+                                    fontSize = 18.sp,
+                                    fontWeight = FontWeight.Medium
+                                )
+                            }
+                        }
+                    }
+                    Button(
+                        onClick = { navController.navigate("mainScreen") },
+                        modifier = Modifier
+                            .align(Alignment.BottomEnd)
+                            .padding(16.dp)
+                            .height(70.dp)
+                            .width(150.dp),
+                        colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.primary)
+                    ) {
+                        Text(text = "Inicio", color = Color.White, fontSize = 18.sp)
+                    }
                 }
             }
-        }
+        )
     }
 
     @Preview(showBackground = true)
@@ -76,7 +95,7 @@ class Agua {
     fun AguaScreenPreview() {
         val navController = rememberNavController()
         ConsumoEnergéticoHogarTheme {
-            this.AguaScreen(navController)
+            AguaScreen(navController)
         }
     }
 }
