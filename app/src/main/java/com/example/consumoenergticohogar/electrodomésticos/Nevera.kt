@@ -1,6 +1,7 @@
 package com.example.consumoenergticohogar.electrodomésticos
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -50,7 +51,6 @@ class Nevera {
                         .fillMaxSize()
                         .padding(paddingValues)
                         .padding(16.dp)
-                        .background(backgroundColor)
                 ) {
                     Column {
                         Card(
@@ -60,14 +60,18 @@ class Nevera {
                             shape = RoundedCornerShape(8.dp),
                             elevation = CardDefaults.cardElevation(4.dp)
                         ) {
-                            Text(
-                                text = mensaje,
-                                fontSize = 18.sp,
-                                fontWeight = FontWeight.Medium,
+                            Box(
                                 modifier = Modifier
+                                    .background(backgroundColor)
+                                    .border(8.dp, Color.LightGray, RoundedCornerShape(8.dp))
                                     .padding(16.dp)
-                                    .background(MaterialTheme.colorScheme.surface)
-                            )
+                            ) {
+                                Text(
+                                    text = mensaje,
+                                    fontSize = 18.sp,
+                                    fontWeight = FontWeight.Medium
+                                )
+                            }
                         }
                     }
                     Button(
