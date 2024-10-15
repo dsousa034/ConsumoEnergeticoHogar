@@ -1,6 +1,7 @@
 package com.example.consumoenergticohogar.consumo
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -9,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -28,24 +30,46 @@ class TipsAhorro {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun TipsAhorroScreen(navController: NavController, modifier: Modifier = Modifier) {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = { Text("Tips para ahorrar energía en casa") },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        titleContentColor = Color.White
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color(0xFF45308F))
+                .border(width = 5.dp, color = Color(0xFF45308F))
+        ) {
+            Scaffold(
+                topBar = {
+                    TopAppBar(
+                        title = {
+                            Text(
+                                "Tips ahorro",
+                                modifier = Modifier.fillMaxWidth(),
+                                textAlign = TextAlign.Center
+                            )
+                        },
+                        colors = TopAppBarDefaults.topAppBarColors(
+                            containerColor = MaterialTheme.colorScheme.primary,
+                            titleContentColor = Color.White
+                        )
                     )
-                )
-            },
-            content = { paddingValues ->
-                Box(
-                    modifier = modifier
-                        .fillMaxSize()
-                        .padding(paddingValues)
-                        .padding(16.dp)
-                ) {
-                    Column {
+                },
+                content = { paddingValues ->
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(Color(0x74C2E4F5))
+                            .padding(paddingValues)
+                            .padding(16.dp),
+                        verticalArrangement = Arrangement.Top,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            text = "Consejos para ahorrar energía",
+                            fontSize = 22.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.Black,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(bottom = 8.dp)
+                        )
                         tips.forEachIndexed { index, tip ->
                             Card(
                                 modifier = Modifier
@@ -65,18 +89,17 @@ class TipsAhorro {
                             }
                         }
                     }
-                    Button(
-                        onClick = { navController.navigate("mainScreen") },
-                        modifier = Modifier
-                            .align(Alignment.BottomEnd)
-                            .padding(16.dp),
-                        colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.primary)
-                    ) {
-                        Text(text = "Volver a la pantalla principal", color = Color.White)
-                    }
                 }
+            )
+            Button(
+                onClick = { navController.navigate("mainScreen") },
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(16.dp)
+            ) {
+                Text(text = "Volver a la pantalla principal")
             }
-        )
+        }
     }
 
     @Preview(showBackground = true)
