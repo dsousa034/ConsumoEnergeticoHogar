@@ -33,7 +33,7 @@ class Agua {
                         "Agua",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(bottom = 16.dp)
+                modifier = Modifier.padding(16.dp)
             )
             Box(modifier = Modifier.fillMaxSize()) {
                 if (consumoAgua > 111.0) {

@@ -28,7 +28,7 @@ class PantallaPrincipal {
                         "¿Qué desea hacer?",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(bottom = 16.dp)
+                modifier = Modifier.padding(bottom = 18.dp)
             )
             Button(
                 onClick = { navController.navigate("gestorConsumo") },
@@ -37,7 +37,7 @@ class PantallaPrincipal {
                 Text(text = "Ver consumo energético de mi hogar por categorías")
             }
             Button(
-                onClick = { navController.navigate("") },
+                onClick = { navController.navigate("TipsAhorro") },
                 modifier = modifier
             ) {
                 Text(text = "¿Qué debería hacer para ahorrar más?" )

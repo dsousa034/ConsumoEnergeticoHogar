@@ -32,7 +32,7 @@ class Nevera {
                         "Nevera",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(bottom = 16.dp)
+                modifier = Modifier.padding(16.dp)
             )
             Box(modifier = Modifier.fillMaxSize()) {
                 if (consumoNevera > 20.0) {
@@ -40,6 +40,7 @@ class Nevera {
                         text = "La nevera este mes ha tenido un consumo de $consumoNevera kW/h \n" +
                                 "Estás consumiendo más de lo recomendado\n" +
                                 "¡¡DEBERÍAS REDUCIR EL CONSUMO!!",
+                        fontSize = 18.sp,
                         modifier = modifier.padding(16.dp)
                     )
                 } else if (consumoNevera < 15.0) {
@@ -47,6 +48,7 @@ class Nevera {
                         text = "La nevera este mes ha tenido un consumo de $consumoNevera kW/h \n" +
                                 "Estás consumiendo menos de lo recomendado\n" +
                                 "¡¡DEBERÍAS AUMENTAR EL CONSUMO!!",
+                        fontSize = 18.sp,
                         modifier = modifier.padding(16.dp)
                     )
                 } else {
@@ -54,6 +56,7 @@ class Nevera {
                         text = "La nevera este mes ha tenido un consumo de $consumoNevera kW/h \n" +
                                 "Estás en el rango de valores óptimos\n" +
                                 "¡¡SIGUE ASÍ!!",
+                        fontSize = 18.sp,
                         modifier = modifier.padding(16.dp)
                     )
                 }

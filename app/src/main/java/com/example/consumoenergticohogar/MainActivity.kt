@@ -16,6 +16,7 @@ import com.example.consumoenergticohogar.consumo.Calefacción
 import com.example.consumoenergticohogar.consumo.GestorConsumo
 import com.example.consumoenergticohogar.consumo.Electrodomésticos
 import com.example.consumoenergticohogar.consumo.Radiadores
+import com.example.consumoenergticohogar.consumo.TipsAhorro
 import com.example.consumoenergticohogar.electrodomésticos.AireAcondicionado
 import com.example.consumoenergticohogar.electrodomésticos.Lavadora
 import com.example.consumoenergticohogar.electrodomésticos.Lavavajillas
@@ -43,7 +44,7 @@ class MainActivity : ComponentActivity() {
                         composable("Agua") { Agua().AguaScreen(navController) }
                         composable("Calefaccion") { Calefacción().CalefaccionScreen(navController) }
                         composable("Radiadores") { Radiadores().RadiadoresScreen(navController) }
-
+                        composable("TipsAhorro") { TipsAhorro().TipsAhorroScreen(navController) }
                     }
                 }
             }

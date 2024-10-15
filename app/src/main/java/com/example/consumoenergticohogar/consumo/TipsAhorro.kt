@@ -1,4 +1,4 @@
-package com.example.consumoenergticohogar.electrodomésticos
+package com.example.consumoenergticohogar.consumo
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -15,18 +15,23 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
-import kotlin.random.Random
 
-class Lavavajillas {
-    var consumoLavavajillas = Random.nextDouble(10.0, 25.0)
+class TipsAhorro {
+    private val tips = listOf(
+        "Apaga los electrodomésticos cuando no los uses.",
+        "Utiliza programas de bajo consumo en tu lavavajillas y lavadora.",
+        "Mantén el aire acondicionado a una temperatura moderada.",
+        "Desconecta los cargadores cuando no los estés usando.",
+        "Aprovecha la luz natural siempre que sea posible."
+    )
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    fun LavavajillasScreen(navController: NavController, modifier: Modifier = Modifier) {
+    fun TipsAhorroScreen(navController: NavController, modifier: Modifier = Modifier) {
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text("Consumo Lavavajillas") },
+                    title = { Text("Tips para ahorrar energía en casa") },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.primary,
                         titleContentColor = Color.White
@@ -41,23 +46,23 @@ class Lavavajillas {
                         .padding(16.dp)
                 ) {
                     Column {
-                        Card(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 8.dp),
-                            shape = RoundedCornerShape(8.dp),
-                            elevation = CardDefaults.cardElevation(4.dp)
-                        ) {
-                            Text(
-                                text = "El lavavajillas este mes ha tenido un consumo de $consumoLavavajillas kW/h \n" +
-                                        "Estás en el rango de valores óptimos\n" +
-                                        "¡¡SIGUE ASÍ!!",
-                                fontSize = 18.sp,
-                                fontWeight = FontWeight.Medium,
+                        tips.forEachIndexed { index, tip ->
+                            Card(
                                 modifier = Modifier
-                                    .padding(16.dp)
-                                    .background(MaterialTheme.colorScheme.surface)
-                            )
+                                    .fillMaxWidth()
+                                    .padding(vertical = 8.dp),
+                                shape = RoundedCornerShape(8.dp),
+                                elevation = CardDefaults.cardElevation(4.dp)
+                            ) {
+                                Text(
+                                    text = "${index + 1}. $tip",
+                                    fontSize = 18.sp,
+                                    fontWeight = FontWeight.Medium,
+                                    modifier = Modifier
+                                        .padding(16.dp)
+                                        .background(MaterialTheme.colorScheme.surface)
+                                )
+                            }
                         }
                     }
                     Button(
@@ -76,10 +81,10 @@ class Lavavajillas {
 
     @Preview(showBackground = true)
     @Composable
-    fun LavavajillasScreenPreview() {
+    fun TipsAhorroScreenPreview() {
         val navController = rememberNavController()
         ConsumoEnergéticoHogarTheme {
-            LavavajillasScreen(navController)
+            TipsAhorroScreen(navController)
         }
     }
 }

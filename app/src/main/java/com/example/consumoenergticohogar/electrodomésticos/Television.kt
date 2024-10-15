@@ -32,14 +32,16 @@ class Television {
                         "Television",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(bottom = 16.dp)
+                modifier = Modifier.padding(16.dp)
             )
             Box(modifier = Modifier.fillMaxSize()) {
+
                 if (consumoTelevision > 20.0) {
                     Text(
                         text = "La television este mes ha tenido un consumo de $consumoTelevision kW/h \n" +
                                 "Estás consumiendo más de lo recomendado\n" +
                                 "¡¡DEBERÍAS REDUCIR EL CONSUMO!!",
+                        fontSize = 18.sp,
                         modifier = modifier.padding(16.dp)
                     )
                 } else if (consumoTelevision < 15.0) {
@@ -47,6 +49,7 @@ class Television {
                         text = "La television este mes ha tenido un consumo de $consumoTelevision kW/h \n" +
                                 "Estás consumiendo menos de lo recomendado\n" +
                                 "¡¡DEBERÍAS AUMENTAR EL CONSUMO!!",
+                        fontSize = 18.sp,
                         modifier = modifier.padding(16.dp)
                     )
                 } else {
@@ -54,6 +57,7 @@ class Television {
                         text = "La television este mes ha tenido un consumo de $consumoTelevision kW/h \n" +
                                 "Estás en el rango de valores óptimos\n" +
                                 "¡¡SIGUE ASÍ!!",
+                        fontSize = 18.sp,
                         modifier = modifier.padding(16.dp)
                     )
                 }

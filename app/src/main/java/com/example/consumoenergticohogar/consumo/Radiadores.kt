@@ -33,7 +33,7 @@ class Radiadores {
                         "Radiadores",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(bottom = 16.dp)
+                modifier = Modifier.padding(16.dp)
             )
             Box(modifier = Modifier.fillMaxSize()) {
                 if (consumoRadiadores > 2160.0) {
@@ -41,6 +41,7 @@ class Radiadores {
                         text = "Los radiadores este mes han tenido un consumo de $consumoRadiadores kW/h \n" +
                                 "Estás consumiendo más de lo recomendado\n" +
                                 "¡¡DEBERÍAS REDUCIR EL CONSUMO!!",
+                        fontSize = 18.sp,
                         modifier = modifier.padding(16.dp)
                     )
                 } else {
@@ -48,6 +49,7 @@ class Radiadores {
                         text = "Los radiadores este mes han tenido un consumo de $consumoRadiadores kW/h \n" +
                                 "Estás en el rango de valores óptimos\n" +
                                 "¡¡SIGUE ASÍ!!",
+                        fontSize = 18.sp,
                         modifier = modifier.padding(16.dp)
                     )
                 }
