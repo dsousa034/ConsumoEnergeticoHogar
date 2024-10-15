@@ -24,8 +24,7 @@ class Calefacción {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFF45308F))
-                .border(width = 5.dp, color = Color(0xFF45308F))
+
         ) {
             Scaffold(
                 topBar = {
