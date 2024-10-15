@@ -20,7 +20,7 @@ import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
 class GestorConsumo {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    fun GestorConsumoScreen(navController: NavController, modifier: Modifier = Modifier) {
+    fun GestorScreen(navController: NavController, modifier: Modifier = Modifier) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -113,10 +113,10 @@ class GestorConsumo {
 
     @Preview(showBackground = true)
     @Composable
-    fun GestorConsumoScreenPreview() {
+    fun GestorScreenPreview() {
         val navController = rememberNavController()
         ConsumoEnergéticoHogarTheme {
-            GestorConsumo().GestorConsumoScreen(navController)
+            GestorConsumo().GestorScreen(navController)
         }
     }
 }
