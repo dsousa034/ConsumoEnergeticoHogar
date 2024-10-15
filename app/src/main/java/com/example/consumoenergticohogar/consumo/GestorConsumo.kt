@@ -105,8 +105,11 @@ class GestorConsumo {
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
                     .padding(16.dp)
+                    .height(70.dp)
+                    .width(150.dp),
+                colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.primary)
             ) {
-                Text(text = "Volver a la pantalla principal")
+                Text(text = "Inicio", color = Color.White, fontSize = 18.sp)
             }
         }
     }
