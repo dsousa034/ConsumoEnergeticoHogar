@@ -19,7 +19,7 @@ import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
 import kotlin.random.Random
 
 class AireAcondicionado {
-    var consumoAireAcondicionado = Random.nextDouble(10.0, 25.0)
+    var consumoAireAcondicionado = 11.4
     private val mensaje = if (consumoAireAcondicionado in 10.0..20.0) {
         "El aire acondicionado este mes ha tenido un consumo de $consumoAireAcondicionado kW/h \n" +
                 "Estás en el rango de valores óptimos\n" +
