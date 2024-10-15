@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
                         composable("electrodomesticos") { Electrodomésticos().ElectrodomesticosScreen(navController)}
                         composable("Lavadora") { Lavadora().LavadoraScreen(navController) }
                         composable("Lavavajillas") { Lavavajillas().LavavajillasScreen(navController) }
-                        composable("AireAcondicionado") { AireAcondicionado().AireScreen(navController) }
+                        composable("AireAcondicionado") { AireAcondicionado().AireAcondicionadoScreen(navController) }
                         composable("Television") { Television().TelevisionScreen(navController) }
                         composable("Nevera") { Nevera().NeveraScreen(navController) }
                         composable("Agua") { Agua().AguaScreen(navController) }

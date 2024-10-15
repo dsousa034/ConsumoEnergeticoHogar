@@ -15,13 +15,25 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
+import kotlin.random.Random
 
 class AireAcondicionado {
-    var consumoAireAcondicionado = 15.0 // Example value
+    var consumoAireAcondicionado = Random.nextDouble(10.0, 25.0)
+    private val mensaje = if (consumoAireAcondicionado in 10.0..20.0) {
+        "El aire acondicionado este mes ha tenido un consumo de $consumoAireAcondicionado kW/h \n" +
+                "Estás en el rango de valores óptimos\n" +
+                "¡¡SIGUE ASÍ!!"
+    } else {
+        "El aire acondicionado este mes ha tenido un consumo de $consumoAireAcondicionado kW/h \n" +
+                "Estás fuera del rango de valores óptimos\n" +
+                "¡NECESITAS MEJORAR!"
+    }
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    fun AireScreen(navController: NavController, modifier: Modifier = Modifier) {
+    fun AireAcondicionadoScreen(navController: NavController, modifier: Modifier = Modifier) {
+        val backgroundColor = if (mensaje.contains("¡¡SIGUE ASÍ!!")) Color(0xFFD0F0C0) else Color(0xFFFFC0C0)
+
         Scaffold(
             topBar = {
                 TopAppBar(
@@ -38,6 +50,7 @@ class AireAcondicionado {
                         .fillMaxSize()
                         .padding(paddingValues)
                         .padding(16.dp)
+                        .background(backgroundColor)
                 ) {
                     Column {
                         Card(
@@ -48,9 +61,7 @@ class AireAcondicionado {
                             elevation = CardDefaults.cardElevation(4.dp)
                         ) {
                             Text(
-                                text = "El aire acondicionado este mes ha tenido un consumo de $consumoAireAcondicionado kW/h \n" +
-                                        "Estás en el rango de valores óptimos\n" +
-                                        "¡¡SIGUE ASÍ!!",
+                                text = mensaje,
                                 fontSize = 18.sp,
                                 fontWeight = FontWeight.Medium,
                                 modifier = Modifier
@@ -75,10 +86,10 @@ class AireAcondicionado {
 
     @Preview(showBackground = true)
     @Composable
-    fun AireScreenPreview() {
+    fun AireAcondicionadoScreenPreview() {
         val navController = rememberNavController()
         ConsumoEnergéticoHogarTheme {
-            AireScreen(navController)
+            AireAcondicionadoScreen(navController)
         }
     }
 }

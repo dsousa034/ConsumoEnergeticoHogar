@@ -19,10 +19,21 @@ import kotlin.random.Random
 
 class Lavavajillas {
     var consumoLavavajillas = Random.nextDouble(10.0, 25.0)
+    private val mensaje = if (consumoLavavajillas in 10.0..20.0) {
+        "El lavavajillas este mes ha tenido un consumo de $consumoLavavajillas kW/h \n" +
+                "Estás en el rango de valores óptimos\n" +
+                "¡¡SIGUE ASÍ!!"
+    } else {
+        "El lavavajillas este mes ha tenido un consumo de $consumoLavavajillas kW/h \n" +
+                "Estás fuera del rango de valores óptimos\n" +
+                "¡NECESITAS MEJORAR!"
+    }
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun LavavajillasScreen(navController: NavController, modifier: Modifier = Modifier) {
+        val backgroundColor = if (mensaje.contains("¡¡SIGUE ASÍ!!")) Color(0xFFD0F0C0) else Color(0xFFFFC0C0)
+
         Scaffold(
             topBar = {
                 TopAppBar(
@@ -39,6 +50,7 @@ class Lavavajillas {
                         .fillMaxSize()
                         .padding(paddingValues)
                         .padding(16.dp)
+                        .background(backgroundColor)
                 ) {
                     Column {
                         Card(
@@ -49,9 +61,7 @@ class Lavavajillas {
                             elevation = CardDefaults.cardElevation(4.dp)
                         ) {
                             Text(
-                                text = "El lavavajillas este mes ha tenido un consumo de $consumoLavavajillas kW/h \n" +
-                                        "Estás en el rango de valores óptimos\n" +
-                                        "¡¡SIGUE ASÍ!!",
+                                text = mensaje,
                                 fontSize = 18.sp,
                                 fontWeight = FontWeight.Medium,
                                 modifier = Modifier
