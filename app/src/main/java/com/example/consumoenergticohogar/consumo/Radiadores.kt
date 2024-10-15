@@ -24,7 +24,7 @@ import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
 import kotlin.random.Random
 
 class Radiadores {
-    var consumoRadiadores = Random.nextDouble(270.0, 3000.0)
+    var consumoRadiadores = 1500.0
 
     @Composable
     fun RadiadoresScreen(navController: NavController, modifier: Modifier = Modifier) {

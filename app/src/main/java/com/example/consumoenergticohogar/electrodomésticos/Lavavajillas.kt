@@ -19,7 +19,7 @@ import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
 import kotlin.random.Random
 
 class Lavavajillas {
-    var consumoLavavajillas = Random.nextDouble(10.0, 25.0)
+    var consumoLavavajillas = 16.5
     private val mensaje = if (consumoLavavajillas in 10.0..20.0) {
         "El lavavajillas este mes ha tenido un consumo de $consumoLavavajillas kW/h \n" +
                 "Estás en el rango de valores óptimos\n" +

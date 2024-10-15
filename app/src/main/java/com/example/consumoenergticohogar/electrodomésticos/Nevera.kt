@@ -19,7 +19,7 @@ import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
 import kotlin.random.Random
 
 class Nevera {
-    var consumoNevera = Random.nextDouble(10.0, 25.0)
+    var consumoNevera = 14.4
     private val mensaje = if (consumoNevera in 10.0..20.0) {
         "La nevera este mes ha tenido un consumo de $consumoNevera kW/h \n" +
                 "Estás en el rango de valores óptimos\n" +

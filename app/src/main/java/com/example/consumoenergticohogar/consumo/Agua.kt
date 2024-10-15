@@ -24,7 +24,7 @@ import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
 import kotlin.random.Random
 
 class Agua {
-    var consumoAgua = Random.nextDouble(70.0, 120.0)
+    var consumoAgua = 75.0
 
     @Composable
     fun AguaScreen(navController: NavController, modifier: Modifier = Modifier) {
