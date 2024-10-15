@@ -75,17 +75,21 @@ class TipsAhorro {
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(vertical = 8.dp),
-                                shape = RoundedCornerShape(8.dp),
-                                elevation = CardDefaults.cardElevation(4.dp)
+                                shape = RoundedCornerShape(10.dp),
+                                elevation = CardDefaults.cardElevation(13.dp)
                             ) {
-                                Text(
-                                    text = "${index + 1}. $tip",
-                                    fontSize = 18.sp,
-                                    fontWeight = FontWeight.Medium,
+                                Box(
                                     modifier = Modifier
-                                        .padding(16.dp)
                                         .background(MaterialTheme.colorScheme.surface)
-                                )
+                                        .border(5.dp, Color.LightGray, RoundedCornerShape(8.dp))
+                                        .padding(16.dp)
+                                ) {
+                                    Text(
+                                        text = "${index + 1}. $tip",
+                                        fontSize = 18.sp,
+                                        fontWeight = FontWeight.Medium
+                                    )
+                                }
                             }
                         }
                     }
