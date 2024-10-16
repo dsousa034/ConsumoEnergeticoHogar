@@ -21,7 +21,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
-import kotlin.random.Random
 
 class Radiadores {
     var consumoRadiadores = 1500.0
