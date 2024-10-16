@@ -1,4 +1,4 @@
-package com.example.consumoenergticohogar.electrodomésticos
+package com.example.consumoenergticohogar.electrodomesticos
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -17,27 +17,27 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
 
-class AireAcondicionado {
-    var consumoAireAcondicionado = 11.4
-    private val mensaje = if (consumoAireAcondicionado in 10.0..20.0) {
-        "El aire acondicionado este mes ha tenido un consumo de $consumoAireAcondicionado kW/h \n" +
+class Nevera {
+    var consumoNevera = 14.4
+    private val mensaje = if (consumoNevera in 10.0..20.0) {
+        "La nevera este mes ha tenido un consumo de $consumoNevera kW/h \n" +
                 "Estás en el rango de valores óptimos\n" +
                 "¡¡SIGUE ASÍ!!"
     } else {
-        "El aire acondicionado este mes ha tenido un consumo de $consumoAireAcondicionado kW/h \n" +
+        "La nevera este mes ha tenido un consumo de $consumoNevera kW/h \n" +
                 "Estás fuera del rango de valores óptimos\n" +
                 "¡NECESITAS MEJORAR!"
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    fun AireAcondicionadoScreen(navController: NavController, modifier: Modifier = Modifier) {
+    fun NeveraScreen(navController: NavController, modifier: Modifier = Modifier) {
         val backgroundColor = if (mensaje.contains("¡¡SIGUE ASÍ!!")) Color(0xFFD0F0C0) else Color(0xFFFFC0C0)
 
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text("Consumo Aire Acondicionado") },
+                    title = { Text("Consumo Nevera") },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.primary,
                         titleContentColor = Color.White
@@ -91,10 +91,10 @@ class AireAcondicionado {
 
     @Preview(showBackground = true)
     @Composable
-    fun AireAcondicionadoScreenPreview() {
+    fun NeveraScreenPreview() {
         val navController = rememberNavController()
         ConsumoEnergéticoHogarTheme {
-            AireAcondicionadoScreen(navController)
+            NeveraScreen(navController)
         }
     }
 }

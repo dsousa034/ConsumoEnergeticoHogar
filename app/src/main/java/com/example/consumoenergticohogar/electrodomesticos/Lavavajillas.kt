@@ -1,4 +1,4 @@
-package com.example.consumoenergticohogar.electrodomésticos
+package com.example.consumoenergticohogar.electrodomesticos
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -17,27 +17,27 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
 
-class Television {
-    var consumoTelevision = 11.3
-    private val mensaje = if (consumoTelevision in 10.0..20.0) {
-        "La televisión este mes ha tenido un consumo de $consumoTelevision kW/h \n" +
+class Lavavajillas {
+    var consumoLavavajillas = 16.5
+    private val mensaje = if (consumoLavavajillas in 10.0..20.0) {
+        "El lavavajillas este mes ha tenido un consumo de $consumoLavavajillas kW/h \n" +
                 "Estás en el rango de valores óptimos\n" +
                 "¡¡SIGUE ASÍ!!"
     } else {
-        "La televisión este mes ha tenido un consumo de $consumoTelevision kW/h \n" +
+        "El lavavajillas este mes ha tenido un consumo de $consumoLavavajillas kW/h \n" +
                 "Estás fuera del rango de valores óptimos\n" +
                 "¡NECESITAS MEJORAR!"
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    fun TelevisionScreen(navController: NavController, modifier: Modifier = Modifier) {
+    fun LavavajillasScreen(navController: NavController, modifier: Modifier = Modifier) {
         val backgroundColor = if (mensaje.contains("¡¡SIGUE ASÍ!!")) Color(0xFFD0F0C0) else Color(0xFFFFC0C0)
 
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text("Consumo Televisión") },
+                    title = { Text("Consumo Lavavajillas") },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.primary,
                         titleContentColor = Color.White
@@ -91,10 +91,10 @@ class Television {
 
     @Preview(showBackground = true)
     @Composable
-    fun TelevisionScreenPreview() {
+    fun LavavajillasScreenPreview() {
         val navController = rememberNavController()
         ConsumoEnergéticoHogarTheme {
-            TelevisionScreen(navController)
+            LavavajillasScreen(navController)
         }
     }
 }

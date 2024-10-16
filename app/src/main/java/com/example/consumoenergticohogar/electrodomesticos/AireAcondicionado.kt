@@ -1,4 +1,4 @@
-package com.example.consumoenergticohogar.electrodomésticos
+package com.example.consumoenergticohogar.electrodomesticos
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -17,27 +17,27 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
 
-class Lavavajillas {
-    var consumoLavavajillas = 16.5
-    private val mensaje = if (consumoLavavajillas in 10.0..20.0) {
-        "El lavavajillas este mes ha tenido un consumo de $consumoLavavajillas kW/h \n" +
+class AireAcondicionado {
+    var consumoAireAcondicionado = 11.4
+    private val mensaje = if (consumoAireAcondicionado in 10.0..20.0) {
+        "El aire acondicionado este mes ha tenido un consumo de $consumoAireAcondicionado kW/h \n" +
                 "Estás en el rango de valores óptimos\n" +
                 "¡¡SIGUE ASÍ!!"
     } else {
-        "El lavavajillas este mes ha tenido un consumo de $consumoLavavajillas kW/h \n" +
+        "El aire acondicionado este mes ha tenido un consumo de $consumoAireAcondicionado kW/h \n" +
                 "Estás fuera del rango de valores óptimos\n" +
                 "¡NECESITAS MEJORAR!"
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    fun LavavajillasScreen(navController: NavController, modifier: Modifier = Modifier) {
+    fun AireAcondicionadoScreen(navController: NavController, modifier: Modifier = Modifier) {
         val backgroundColor = if (mensaje.contains("¡¡SIGUE ASÍ!!")) Color(0xFFD0F0C0) else Color(0xFFFFC0C0)
 
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text("Consumo Lavavajillas") },
+                    title = { Text("Consumo Aire Acondicionado") },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.primary,
                         titleContentColor = Color.White
@@ -91,10 +91,10 @@ class Lavavajillas {
 
     @Preview(showBackground = true)
     @Composable
-    fun LavavajillasScreenPreview() {
+    fun AireAcondicionadoScreenPreview() {
         val navController = rememberNavController()
         ConsumoEnergéticoHogarTheme {
-            LavavajillasScreen(navController)
+            AireAcondicionadoScreen(navController)
         }
     }
 }

@@ -17,11 +17,11 @@ import com.example.consumoenergticohogar.consumo.GestorConsumo
 import com.example.consumoenergticohogar.consumo.Electrodomésticos
 import com.example.consumoenergticohogar.consumo.Radiadores
 import com.example.consumoenergticohogar.consumo.TipsAhorro
-import com.example.consumoenergticohogar.electrodomésticos.AireAcondicionado
-import com.example.consumoenergticohogar.electrodomésticos.Lavadora
-import com.example.consumoenergticohogar.electrodomésticos.Lavavajillas
-import com.example.consumoenergticohogar.electrodomésticos.Nevera
-import com.example.consumoenergticohogar.electrodomésticos.Television
+import com.example.consumoenergticohogar.electrodomesticos.AireAcondicionado
+import com.example.consumoenergticohogar.electrodomesticos.Lavadora
+import com.example.consumoenergticohogar.electrodomesticos.Lavavajillas
+import com.example.consumoenergticohogar.electrodomesticos.Nevera
+import com.example.consumoenergticohogar.electrodomesticos.Television
 import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
 
 class MainActivity : ComponentActivity() {
