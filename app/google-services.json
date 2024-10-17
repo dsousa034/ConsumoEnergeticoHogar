@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "769387171809",
+    "project_id": "gestorconsumohogar",
+    "storage_bucket": "gestorconsumohogar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769387171809:android:46ff423ad02b5cddae4ca0",
+        "android_client_info": {
+          "package_name": "com.example.consumoenergticohogar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGSy-Vmn9p4aASCXXnSg3aN4GiAvsM3yE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

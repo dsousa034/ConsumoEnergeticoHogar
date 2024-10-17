@@ -18,7 +18,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
 
 class Lavadora {
-    var consumoLavadora = 17.0
+    var consumoLavadora = 24.0
     private val mensaje = if (consumoLavadora in 10.0..20.0) {
         "La lavadora este mes ha tenido un consumo de $consumoLavadora kW/h \n" +
                 "Estás en el rango de valores óptimos\n" +

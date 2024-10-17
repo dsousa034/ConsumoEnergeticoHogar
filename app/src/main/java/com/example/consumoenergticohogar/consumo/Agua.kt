@@ -18,7 +18,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
 
 class Agua {
-    var consumoAgua = 75.0
+    var consumoAgua = 120
     private val mensaje = if (consumoAgua > 111.0) {
         "Este mes ha tenido un consumo de agua de $consumoAgua litros \n" +
                 "Estás consumiendo más de lo recomendado\n" +
