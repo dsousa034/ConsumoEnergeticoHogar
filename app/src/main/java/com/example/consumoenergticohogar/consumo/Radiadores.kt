@@ -1,26 +1,24 @@
 package com.example.consumoenergticohogar.consumo
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 
 class Radiadores {
     var consumoRadiadores = 1500.0
@@ -57,6 +55,7 @@ class Radiadores {
                         modifier = modifier.padding(16.dp)
                     )
                 }
+                LineChartView(consumoRadiadores)
                 Button(
                     onClick = { navController.navigate("mainScreen") },
                     modifier = Modifier
@@ -70,6 +69,27 @@ class Radiadores {
                 }
             }
         }
+    }
+
+    @Composable
+    fun LineChartView(consumo: Double) {
+        val entries = listOf(Entry(0f, consumo.toFloat()))
+        val dataSet = LineDataSet(entries, "Consumo").apply {
+            color = Color.Blue.toArgb()
+            valueTextColor = Color.Black.toArgb()
+        }
+        val lineData = LineData(dataSet)
+        AndroidView(
+            factory = { context ->
+                LineChart(context).apply {
+                    data = lineData
+                    invalidate()
+                }
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp)
+        )
     }
 
     @Preview(showBackground = true)

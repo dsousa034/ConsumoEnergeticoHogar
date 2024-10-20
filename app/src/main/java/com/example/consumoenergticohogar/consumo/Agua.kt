@@ -9,16 +9,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 
 class Agua {
-    var consumoAgua = 120
+    var consumoAgua = 120.0
     private val mensaje = if (consumoAgua > 111.0) {
         "Este mes ha tenido un consumo de agua de $consumoAgua litros \n" +
                 "Estás consumiendo más de lo recomendado\n" +
@@ -72,6 +78,7 @@ class Agua {
                                 )
                             }
                         }
+                        LineChartView(consumoAgua)
                     }
                     Button(
                         onClick = { navController.navigate("mainScreen") },
@@ -86,6 +93,27 @@ class Agua {
                     }
                 }
             }
+        )
+    }
+
+    @Composable
+    fun LineChartView(consumo: Double) {
+        val entries = listOf(Entry(0f, consumo.toFloat()))
+        val dataSet = LineDataSet(entries, "Consumo").apply {
+            color = Color.Blue.toArgb()
+            valueTextColor = Color.Black.toArgb()
+        }
+        val lineData = LineData(dataSet)
+        AndroidView(
+            factory = { context ->
+                LineChart(context).apply {
+                    data = lineData
+                    invalidate()
+                }
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp)
         )
     }
 

@@ -7,23 +7,30 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.consumoenergticohogar.ui.theme.ConsumoEnergéticoHogarTheme
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 
 class Calefacción {
+    var consumoCalefaccion = 1500.0
+
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun CalefaccionScreen(navController: NavController, modifier: Modifier = Modifier) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-
         ) {
             Scaffold(
                 topBar = {
@@ -93,6 +100,7 @@ class Calefacción {
                                 Text(text = "Radiadores", fontSize = 18.sp)
                             }
                         }
+                        LineChartView(consumoCalefaccion)
                     }
                 }
             )
@@ -108,6 +116,27 @@ class Calefacción {
                 Text(text = "Inicio", color = Color.White, fontSize = 18.sp)
             }
         }
+    }
+
+    @Composable
+    fun LineChartView(consumo: Double) {
+        val entries = listOf(Entry(0f, consumo.toFloat()))
+        val dataSet = LineDataSet(entries, "Consumo").apply {
+            color = Color.Blue.toArgb()
+            valueTextColor = Color.Black.toArgb()
+        }
+        val lineData = LineData(dataSet)
+        AndroidView(
+            factory = { context ->
+                LineChart(context).apply {
+                    data = lineData
+                    invalidate()
+                }
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp)
+        )
     }
 
     @Preview(showBackground = true)
